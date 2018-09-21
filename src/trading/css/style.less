@@ -1,0 +1,843 @@
+body{
+  background:rgba(31,36,39,1);
+  min-width:1300px;
+  .contBox{
+    min-width: 1300px;
+  }
+}
+.loadding{
+  text-align: center;
+  display: none;
+  .layui-icon{
+    font-size:1em;
+    color:#ccc;
+  }
+}
+.bithank-loadding{
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  background: #373d41;
+  text-align: center;
+  line-height: 100%;
+  display: table;
+  .loading-txt{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 16px;
+    color:#FFF;
+  }
+  .loading-icon{
+    line-height: 50px;
+    i{font-size: 25px;}
+  }
+}
+.auto-height{
+  height: 500px;
+}
+.userLoadding{
+  width: 60px;
+  line-height: 60px;
+  position: absolute;
+  z-index: 9;
+  right: 0px;
+}
+//头部导航
+.header{
+  background-color: #373D41;
+  height: 60px;
+  position: relative;
+  width: 100%;
+  .logo{
+    float: left;
+    z-index: 9;
+    height: 45px;
+    margin-top:16px;
+    margin-left:15px;
+  }
+  //价格样式合子
+  .price-box{
+    float: left;
+    padding:12px 15px;
+    color:#FFF;
+    min-width: 1100px;
+    .block{
+      height:34px;
+      float: left;
+      .layui-nav{
+        padding:0px;
+        background: none;
+        .layui-nav-bar{
+          background: none;
+        }
+        .layui-nav-bar:after{
+          background: none;
+        }
+        li.one{
+          height: auto;
+          line-height: 18px;
+          a.one{
+            padding:0px;
+            padding-right: 32px;
+            padding-bottom:15px;
+            .layui-nav-more{
+              right:10px;
+              top:10px;
+            }
+
+          }
+          //头部下拉
+          .layui-nav-child{
+            top:32px;
+            .pair-search{
+              position: absolute;
+              right: 26px;
+              width: 150px;
+              height: 30px;
+              margin-top: 10px;
+              z-index: 9999;
+              img{
+                position: absolute;
+                margin-top: 8px;
+                margin-left: 6px;
+              }
+              input{
+                width: 150px;
+                height: 30px;
+                background: none;
+                border-radius: 4px;
+                border: 1px solid #4B5154;
+                z-index: 9;
+                text-indent: 25px;
+                color:#FFF;
+              }
+            }
+            .layui-table-sort .layui-table-sort-asc{
+              border-bottom-color:#FFF;
+            }
+            .layui-table-sort[lay-sort=desc] .layui-table-sort-desc{
+              border-bottom-color: #00C1DC;
+            }
+            a{
+              color:#CCCCCC;
+            }
+            .layui-this{
+              background: none;
+              color:#00C1DC;
+            }
+            .layui-tab-title{
+              border-color: #4B5154;
+              li{
+                font-size:16px;
+                min-width:25px;
+              }
+            }
+            .layui-this:after{
+              background: none;
+              color:#00C1DC;
+              border-bottom:2px solid #00C1DC;
+            }
+            .layui-tab{
+              margin-top:10px;
+              .layui-tab-content{
+                padding:0px;
+                .layui-table{
+                  background: none;
+                  color:#CCCCCC;
+                }
+                .layui-table td:first-child{
+                  text-align: left;
+                  a{
+                    padding:0px;
+                  }
+                }
+                .layui-table td, .layui-table th, .layui-table-fixed-r, .layui-table-header, .layui-table-page, .layui-table-tips-main, .layui-table-tool, .layui-table-view, .layui-table[lay-skin=line], .layui-table[lay-skin=row]{
+                  background: none;
+                  border-style: none;
+                }
+                .layui-table tbody tr:hover, .layui-table thead tr, .layui-table-click, .layui-table-header, .layui-table-hover, .layui-table-mend, .layui-table-patch, .layui-table-tool, .layui-table[lay-even] tr:nth-child(even){
+                  background: none;
+                  a{
+                    background: none;
+                    color:#00C1DC;
+                  }
+                }
+                .layui-table tbody tr{
+                  border-bottom:1px solid #4B5154;
+                }
+                .layui-table thead th{
+                  color:#FFF;
+                }
+              }
+            }
+            .layui-table-body::-webkit-scrollbar {display:none}
+          }
+          .pair-box{
+            width:600px;
+            height:auto;
+            background:rgba(39,43,46,1);
+            box-shadow:6px 0px 20px rgba(19,29,36,0.4);
+            border:none;
+            padding:0px 24px;
+          }
+        }
+        li:hover{
+          border-bottom:none;
+        }
+        .txt{
+          color:#FFF;
+          font-size: 16px;
+          font-weight: bold;
+        }
+      }
+      .txt{
+        font-size:12px;
+        color:rgb(114,145,161);
+        line-height: 20px;
+      }
+      padding:0px 30px;
+      .data{
+        font-size:16px;
+        .two{
+          color:rgb(114,145,161);
+          margin-left:5px;
+        }
+        .red{
+          color:rgb(255,83,83);
+        }
+      }
+      .txt-pair{
+        color:#FFF;
+        font-size:12px;
+      }
+    }
+    .block-one{
+      padding:0px 15px 0px 25px;
+      margin-left:10px;
+      border-left:1px solid #999;
+      border-right:1px solid #999;
+      min-width:130px;
+    }
+  }
+  .top-menu{
+    background-color: #373D41;
+    position: absolute;
+    right:236px;
+  }
+  .user-auth{
+    margin-top:10px;
+    right:0px;
+    margin-right:15px;
+    position: absolute;
+    a{
+      width:112px;
+      height:40px;
+    }
+    .login{
+      border-left:0px;
+      background: none;
+    }
+    .login:hover{
+
+    }
+    .reg{
+      background: #00C1DE;
+      border-radius: 4px;
+      border-left:0px;
+    }
+  }
+  .lang-change{
+    .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this{
+      background: none;
+      color:#00c1de;
+    }
+    .layui-nav-child{
+      border:none;
+      padding:0px;
+      left:auto;
+      top:60px;
+      background: #202529;
+      a{
+        color:#FFF;
+      }
+      a:hover{
+        background: none;
+      }
+    }
+    .center-link{
+      width:200px;
+      right:0px;
+      left:auto;
+      background: #202529;
+      border-radius: 0px;
+    }
+    .layui-nav-bar{
+      display: none;
+    }
+  }
+  .user-center{
+    right:0px;
+    .avator:hover{
+      background: #00c1dc;
+    }
+    .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after{
+      background:none;
+    }
+    .topbar-user-info-dropdown{
+      position: absolute;
+      right: 0;
+      top: 60px;
+      width: 200px;
+      height: 300px;
+      background: #202529;
+      color: #fff;
+      z-index: 99999;
+      .top{
+        background: #262c30;
+        padding: 0px 16px;
+        .top-line{
+          line-height: 1;
+          .user-uid{
+            margin-top:10px;
+            display: inline-block;
+            width: 160px;
+            font-size: 12px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: #fff;
+            padding-left:0px;
+            &:hover{
+              color: #00c1dc;
+            }
+            a{
+              padding:0px;
+            }
+          }
+        }
+        .short{
+          display: inline-block;
+          line-height: 1;
+          margin-top: 10px;
+          font-size: 12px;
+          color: #00c1dc;
+        }
+      }
+      .middle{
+        a{
+          height: 20px;
+          line-height: 20px;
+          padding: 0 16px;
+          margin: 12px 0;
+          font-size: 12px;
+          position: relative;
+          display:block;
+          color:#fff;
+          &:hover{
+            color: #00c1dc;
+          }
+          img{
+            width: 18px;
+            vertical-align: top;
+            margin-right: 8px;
+          }
+        }
+        .break-line{
+          height: 1px;
+          margin: 0 16px;
+          background: #474D50
+        }
+      }
+      .bottom{
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        div{
+          width: 160px;
+          border:1px solid #00C1DE;
+          height: 30px;
+          line-height: 30px;
+          color: #00C1DE;
+          text-align: center;
+          font-size: 12px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    padding:0px;
+    .layui-nav-more{
+      display: none;
+    }
+    .layui-nav-bar{
+      display: none;
+    }
+    .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this{
+      background: none;
+    }
+    .layui-nav-child{
+      border:none;
+      padding:0px;
+      left:auto;
+      a:hover{
+        background: none;
+      }
+    }
+    .center-link{
+      width:200px;
+      right:0px;
+      left:auto;
+      background: #202529;
+      border-radius: 0px;
+    }
+    .layui-nav-bar{
+      display: none;
+    }
+  }
+}
+
+.side-own{
+  left: auto;
+  right:0px;
+  top:60px;
+  width:600px;
+  padding-right:0px;
+  position: absolute;
+  bottom:auto;
+  .layui-table-view{
+    margin:0 auto;
+  }
+  .layui-side-scroll{
+    width:600px;
+    height:auto;
+    bottom:auto;
+    .tab-left-box,.tab-right-box,.tab-bottom-box{
+      width:297px;
+      background:rgba(39,43,46,1);
+      margin-top:3px;
+    }
+    .layui-table-body{
+      padding-top:6px;
+    }
+    .layui-table-header{
+      padding-top:12px;
+    }
+    .tab-left-box{
+      float: left;
+      margin-left:3px;
+      .layui-tab-content{
+        padding:0px;
+        padding-bottom:10px;
+        .layui-table .layui-table-cell{
+          cursor: pointer;
+        }
+        .layui-table tr:hover{
+          background: #373d41;
+        }
+        .top,.bottom{
+          width: auto;
+          //height: 235px;
+          overflow: hidden;
+        }
+        .bottom{
+          .layui-table-header{
+            display: none;
+          }
+          .layui-table-body{
+            padding-top:0px;
+          }
+        }
+        .middle{
+          height: 36px;
+          line-height: 36px;
+          position: relative;
+          font-size:20px;
+          color:#FFF;
+          width: 268px;
+          margin: 0 auto;
+          .data{
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            left:15px;
+          }
+          .status{
+            position: absolute;
+            right: 0px;
+            margin-top:-3px;
+          }
+        }
+      }
+    }
+    .tab-right-box{
+      float: right;
+      .layui-tab-content{
+        padding:0px;
+        padding-bottom:10px;
+      }
+    }
+    .tab-bottom-box{ //交易区样式
+      float: left;
+      margin-top:3px;
+      margin-left:3px;
+      width:100%;
+      height: 365px;
+      .layui-tab-content{
+        .layui-form{
+          margin-top:30px;
+        }
+        .input-style{
+          width:100%;
+          border:none;
+          border-bottom:2px solid #666666;
+          background: none;
+          line-height: 33px;
+          font-size:14px;
+          color:#FFF;
+        }
+        .input-style-dashed{
+          border-bottom:2px dashed #666666;
+        }
+        .input-box{
+          position: relative;
+        }
+        .right-tip{
+          position: absolute;
+          top:0px;
+          line-height: 34px;
+          right:0px;
+          color:#666666;
+        }
+        input::-webkit-input-placeholder{
+          color:#666666;
+        }
+        input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+          color:#666666;
+        }
+        input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+          color:#666666;
+        }
+        input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+          color:#666666;
+        }
+        input:focus{
+          border-color:#06B24A;
+        }
+        .input-text{
+          color:#CCCCCC;
+        }
+        .total-box{
+          position: relative;
+        }
+        .input-total{
+          color: #ccc;
+          width: 230px;
+          display: inline-block;
+          /* text-align: right; */
+          position: absolute;
+          right: 0px;
+          text-align: right;
+        }
+        .proportion{
+          list-style: none;
+          li{
+            float: left;
+            width:67px;
+            line-height: 24px;
+            background:rgba(255,255,255,0.1);
+            //opacity:0.1;
+            margin-right:4px;
+            text-align: center;
+            color:#CCCCCC;
+          }
+          li:last-child{
+            margin-right: 0px;
+          }
+          li:hover{
+            background: #06B24A;
+            color:#FFF;
+            opacity:1;
+            cursor: pointer;
+          }
+          li.current{
+            background: #06B24A;
+            color:#FFF;
+          }
+        }
+        .login-left{
+          width:100%;
+          height:34px;
+          line-height: 34px;
+          border-radius: 0px;
+          background:rgba(6,178,74,1);
+        }
+        .login-right{
+          height:34px;
+          line-height: 34px;
+          border-radius: 0px;
+          width:100%;
+          height:34px;
+          background:rgba(241,85,51,1);
+        }
+        .suspended{
+          background: #333;
+        }
+        .left-box{
+          width:280px;
+          float: left;
+        }
+        .right-box{
+          width:280px;
+          float: right;
+        }
+        .message{
+          position: absolute;
+          margin-top: -35px;
+          width:230px;
+          line-height: 25px;
+          display: none;
+          span{
+            color:#FFF;
+            font-size:12px;
+          }
+          .error{
+            color:#f15533;
+          }
+          .success{
+            color:#06b24a;
+          }
+        }
+        .loaddingBox{
+          position: absolute;
+          background: none;
+          width: 280px;
+          height: 284px;
+          text-align: center;
+          line-height: 180px;
+          /* font-size: 0px; */
+          z-index: 9;
+          opacity: 0.8;
+          .layui-icon{
+            font-size: 2em;
+          }
+        }
+      }
+    }
+    .layui-tab{
+      margin:0px;
+      .layui-tab-title{
+        background:rgba(55,61,65,1);
+        border-bottom:0px;
+        height: 33px;
+        color:#FFF;
+        .layui-this{
+          color:#FFF;
+          background:rgba(39,43,46,1);
+        }
+        .layui-this:after{
+          border-bottom:0px;
+          border-top:1px solid rgba(0,193,220,1);
+          border-left:none;
+          border-right:none;
+          border-radius:0px;
+        }
+        li{
+          border:none;
+          line-height: 34px;
+          min-width: 48px;
+        }
+      }
+      .layui-this{
+
+      }
+    }
+    .layui-tab-content{
+      .layui-table-view{
+        padding:0px;
+      }
+      .layui-table-cell{
+        height: auto;
+        padding:0px;
+        line-height: 18px;
+      }
+      .layui-table {
+        width: 100%;
+        background: none;
+        color: #666;
+        margin:0px;
+      }
+      tr{
+        background: none;
+      }
+      td,th{
+        padding:0px;
+        border:none;
+        background: none;
+      }
+      td:not(:first-child),th:not(:first-child){
+        text-align: right;
+      }
+      th{
+        color: rgb(114, 145, 161);
+        .layui-table-cell{
+          padding:0px;
+        }
+      }
+      td{
+        font-size:12px;
+        color:#FFF;
+      }
+    }
+  }
+  .layui-side-scroll::-webkit-scrollbar {display:none}
+}
+.content{
+  left:0px;
+  right:600px;
+  bottom:auto;
+  margin-top:3px;
+  .chart-page .chart-container {
+    border: 1px solid;
+    border-color: red;
+  }
+  #tv_chart_container{
+    margin-top:3px;
+  }
+  .trading-bottom-box{
+    background: #272b2e;
+    height: 280px;
+    margin-top:3px;
+    display: none;
+    .layui-table {
+      width: 100%;
+      background: none;
+      color: #666;
+      margin:0px;
+    }
+    .layui-table-cell{
+      padding:0px;
+    }
+    tr{
+      background: none;
+    }
+    td,th{
+      padding:0px;
+      border:none;
+      background: none;
+    }
+    td:not(:first-child),th:not(:first-child){
+      text-align: right;
+    }
+    th{
+      color: rgb(114, 145, 161);
+      .layui-table-cell{
+        padding:0px;
+      }
+    }
+    td{
+      font-size:12px;
+      color:#FFF;
+    }
+    .layui-table tbody tr:hover, .layui-table thead tr, .layui-table-click, .layui-table-header, .layui-table-hover, .layui-table-mend, .layui-table-patch, .layui-table-tool, .layui-table[lay-even] tr:nth-child(even){
+      background: none;
+      a{
+        background: #f15533;
+        color:#FFF;
+      }
+    }
+    .layui-tab{
+      margin:0px;
+      .layui-tab-title{
+        background:rgba(55,61,65,1);
+        border-bottom:0px;
+        height: 33px;
+        color:#FFF;
+        .layui-this{
+          color:#FFF;
+          background:rgba(39,43,46,1);
+        }
+        .layui-this:after{
+          border-bottom:0px;
+          border-top:1px solid rgba(0,193,220,1);
+          border-left:none;
+          border-right:none;
+          border-radius:0px;
+        }
+        li{
+          border:none;
+          line-height: 34px;
+          min-width: 48px;
+        }
+      }
+      .layui-this{
+
+      }
+    }
+    .layui-tab-content{
+      padding-bottom:0px;
+      padding-top:0px;
+      .top,.bottom{
+        width: auto;
+        height: 235px;
+        overflow: hidden;
+      }
+      .middle{
+        height: 36px;
+        line-height: 36px;
+        position: relative;
+        font-size:18px;
+        color:#FFF;
+        .data{
+          position: absolute;
+          width: 100%;
+          text-align: center;
+          left:30px;
+        }
+        .status{
+          position: absolute;
+          right: 0px;
+        }
+      }
+    }
+  }
+}
+body::-webkit-scrollbar {display:none}
+.white{
+  color:#FFF;
+}
+.red{
+  color: rgb(255, 83, 83);
+}
+.green{
+  color: rgb(6, 176, 124);
+}
+//去除表格全局样式
+.layui-table{
+  background: none;
+}
+.layui-table td, .layui-table th, .layui-table-fixed-r, .layui-table-header, .layui-table-page, .layui-table-tips-main, .layui-table-tool, .layui-table-view, .layui-table[lay-skin=line], .layui-table[lay-skin=row]{
+  background: none;
+  border-style: none;
+}
+.layui-table tbody tr:hover, .layui-table thead tr, .layui-table-click, .layui-table-header, .layui-table-hover, .layui-table-mend, .layui-table-patch, .layui-table-tool, .layui-table[lay-even] tr:nth-child(even){
+  background: none;
+  a{
+    background: none;
+    color:#00C1DC;
+  }
+}
+.layui-table thead th{
+  color:#FFF;
+}
+.undo-btn{
+  color:#FFF;
+  padding:3px 10px;
+  border:none;
+  background: #f15533;
+  cursor: pointer;
+}
+.layui-none{
+  color: #666;
+  font-size: 12px;
+}

@@ -1,0 +1,30 @@
+.chart-page .chart-container{
+    border:none;
+    background: none;
+}
+.chart-page{
+    background: #272b2e;
+}
+.bottom-widgetbar-content.backtesting .button, .header-chart-panel .button, .hotlist-controls .button, .symbol-edit-widget .button{
+    background: none;
+    border:none;
+    cursor: pointer;
+    color:#ccc;
+    padding-left:20px;
+    padding-right:20px;
+}
+.feature-no-touch ._tv-dialog .button:not(.disabled):not(.selected):hover:before, .feature-no-touch ._tv-dialog .custom-select .switcher:not(.disabled):not(.selected):hover:before, .feature-no-touch ._tv-dialog .favored-list-container span:not(.disabled):not(.selected):hover:before, .feature-no-touch ._tv-dialog .submenu:not(.disabled):not(.selected):hover:before, .feature-no-touch .bottom-widgetbar-content.backtesting .button:not(.disabled):not(.selected):hover:before, .feature-no-touch .bottom-widgetbar-content.backtesting .custom-select .switcher:not(.disabled):not(.selected):hover:before, .feature-no-touch .bottom-widgetbar-content.backtesting .favored-list-container span:not(.disabled):not(.selected):hover:before, .feature-no-touch .bottom-widgetbar-content.backtesting .submenu:not(.disabled):not(.selected):hover:before, .feature-no-touch .header-chart-panel .button:not(.disabled):not(.selected):hover:before, .feature-no-touch .header-chart-panel .custom-select .switcher:not(.disabled):not(.selected):hover:before, .feature-no-touch .header-chart-panel .favored-list-container span:not(.disabled):not(.selected):hover:before, .feature-no-touch .header-chart-panel .submenu:not(.disabled):not(.selected):hover:before, .feature-no-touch .properties-toolbar .button:not(.disabled):not(.selected):hover:before, .feature-no-touch .properties-toolbar .custom-select .switcher:not(.disabled):not(.selected):hover:before, .feature-no-touch .properties-toolbar .favored-list-container span:not(.disabled):not(.selected):hover:before, .feature-no-touch .properties-toolbar .submenu:not(.disabled):not(.selected):hover:before, .feature-no-touch .widgetbar-widgetheader .button:not(.disabled):not(.selected):hover:before, .feature-no-touch .widgetbar-widgetheader .custom-select .switcher:not(.disabled):not(.selected):hover:before, .feature-no-touch .widgetbar-widgetheader .favored-list-container span:not(.disabled):not(.selected):hover:before, .feature-no-touch .widgetbar-widgetheader .submenu:not(.disabled):not(.selected):hover:before{
+    border:none;
+    background:rgba(255,255,255,1);
+    opacity:0.1;
+}
+.feature-no-touch .header-chart-panel .button:hover:not(.disabled), .feature-no-touch .symbol-edit-widget .button:hover:not(.disabled){
+    color:#00c1dc;
+}
+.loading-indicator{
+    background: #272b2e;
+}
+.bottom-widgetbar-content.backtesting .button.active, .ch-controls .button.active, .feature-no-touch .bottom-widgetbar-content.backtesting .button:active, .feature-no-touch .ch-controls .button:active, .feature-no-touch .header-chart-panel .button.active:hover, .feature-no-touch .header-chart-panel .button:active, .feature-no-touch .hotlist-controls .button:active, .feature-no-touch .save-load-buttons .active:hover, .feature-no-touch .save-load-buttons a:not(.link):active, .feature-no-touch .symbol-edit-widget .button:active, .feature-touch .bottom-widgetbar-content.backtesting .button:active, .feature-touch .ch-controls .button:active, .feature-touch .header-chart-panel .button:active, .feature-touch .hotlist-controls .button:active, .feature-touch .save-load-buttons a:not(.link):active, .feature-touch .symbol-edit-widget .button:active, .header-chart-panel .button.active, .header-chart-panel .button.i-active, .hotlist-controls .button.active, .save-load-buttons .active, .symbol-edit-widget .button.active{
+    background:rgba(255,255,255,0.1);
+    color: #00C1DC;
+}

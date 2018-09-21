@@ -1,0 +1,904 @@
+body {
+  background: #1f2427;
+  min-width: 1300px;
+}
+body .contBox {
+  min-width: 1300px;
+}
+.loadding {
+  text-align: center;
+  display: none;
+}
+.loadding .layui-icon {
+  font-size: 1em;
+  color: #ccc;
+}
+.bithank-loadding {
+  position: fixed;
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  background: #373d41;
+  text-align: center;
+  line-height: 100%;
+  display: table;
+}
+.bithank-loadding .loading-txt {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 16px;
+  color: #FFF;
+}
+.bithank-loadding .loading-icon {
+  line-height: 50px;
+}
+.bithank-loadding .loading-icon i {
+  font-size: 25px;
+}
+.auto-height {
+  height: 500px;
+}
+.userLoadding {
+  width: 60px;
+  line-height: 60px;
+  position: absolute;
+  z-index: 9;
+  right: 0px;
+}
+.header {
+  background-color: #373D41;
+  height: 60px;
+  position: relative;
+  width: 100%;
+}
+.header .logo {
+  float: left;
+  z-index: 9;
+  height: 45px;
+  margin-top: 16px;
+  margin-left: 15px;
+}
+.header .price-box {
+  float: left;
+  padding: 12px 15px;
+  color: #FFF;
+  min-width: 1100px;
+}
+.header .price-box .block {
+  height: 34px;
+  float: left;
+  padding: 0px 30px;
+}
+.header .price-box .block .layui-nav {
+  padding: 0px;
+  background: none;
+}
+.header .price-box .block .layui-nav .layui-nav-bar {
+  background: none;
+}
+.header .price-box .block .layui-nav .layui-nav-bar:after {
+  background: none;
+}
+.header .price-box .block .layui-nav li.one {
+  height: auto;
+  line-height: 18px;
+}
+.header .price-box .block .layui-nav li.one a.one {
+  padding: 0px;
+  padding-right: 32px;
+  padding-bottom: 15px;
+}
+.header .price-box .block .layui-nav li.one a.one .layui-nav-more {
+  right: 10px;
+  top: 10px;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child {
+  top: 32px;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .pair-search {
+  position: absolute;
+  right: 26px;
+  width: 150px;
+  height: 30px;
+  margin-top: 10px;
+  z-index: 9999;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .pair-search img {
+  position: absolute;
+  margin-top: 8px;
+  margin-left: 6px;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .pair-search input {
+  width: 150px;
+  height: 30px;
+  background: none;
+  border-radius: 4px;
+  border: 1px solid #4B5154;
+  z-index: 9;
+  text-indent: 25px;
+  color: #FFF;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-table-sort .layui-table-sort-asc {
+  border-bottom-color: #FFF;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-table-sort[lay-sort=desc] .layui-table-sort-desc {
+  border-bottom-color: #00C1DC;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child a {
+  color: #CCCCCC;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-this {
+  background: none;
+  color: #00C1DC;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab-title {
+  border-color: #4B5154;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab-title li {
+  font-size: 16px;
+  min-width: 25px;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-this:after {
+  background: none;
+  color: #00C1DC;
+  border-bottom: 2px solid #00C1DC;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab {
+  margin-top: 10px;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content {
+  padding: 0px;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table {
+  background: none;
+  color: #CCCCCC;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table td:first-child {
+  text-align: left;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table td:first-child a {
+  padding: 0px;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table td,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table th,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-fixed-r,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-header,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-page,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-tips-main,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-tool,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-view,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table[lay-skin=line],
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table[lay-skin=row] {
+  background: none;
+  border-style: none;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table tbody tr:hover,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table thead tr,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-click,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-header,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-hover,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-mend,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-patch,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-tool,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table[lay-even] tr:nth-child(even) {
+  background: none;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table tbody tr:hover a,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table thead tr a,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-click a,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-header a,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-hover a,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-mend a,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-patch a,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table-tool a,
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table[lay-even] tr:nth-child(even) a {
+  background: none;
+  color: #00C1DC;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table tbody tr {
+  border-bottom: 1px solid #4B5154;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-tab .layui-tab-content .layui-table thead th {
+  color: #FFF;
+}
+.header .price-box .block .layui-nav li.one .layui-nav-child .layui-table-body::-webkit-scrollbar {
+  display: none;
+}
+.header .price-box .block .layui-nav li.one .pair-box {
+  width: 600px;
+  height: auto;
+  background: #272b2e;
+  box-shadow: 6px 0px 20px rgba(19, 29, 36, 0.4);
+  border: none;
+  padding: 0px 24px;
+}
+.header .price-box .block .layui-nav li:hover {
+  border-bottom: none;
+}
+.header .price-box .block .layui-nav .txt {
+  color: #FFF;
+  font-size: 16px;
+  font-weight: bold;
+}
+.header .price-box .block .txt {
+  font-size: 12px;
+  color: #7291a1;
+  line-height: 20px;
+}
+.header .price-box .block .data {
+  font-size: 16px;
+}
+.header .price-box .block .data .two {
+  color: #7291a1;
+  margin-left: 5px;
+}
+.header .price-box .block .data .red {
+  color: #ff5353;
+}
+.header .price-box .block .txt-pair {
+  color: #FFF;
+  font-size: 12px;
+}
+.header .price-box .block-one {
+  padding: 0px 15px 0px 25px;
+  margin-left: 10px;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  min-width: 130px;
+}
+.header .top-menu {
+  background-color: #373D41;
+  position: absolute;
+  right: 236px;
+}
+.header .user-auth {
+  margin-top: 10px;
+  right: 0px;
+  margin-right: 15px;
+  position: absolute;
+}
+.header .user-auth a {
+  width: 112px;
+  height: 40px;
+}
+.header .user-auth .login {
+  border-left: 0px;
+  background: none;
+}
+.header .user-auth .reg {
+  background: #00C1DE;
+  border-radius: 4px;
+  border-left: 0px;
+}
+.header .lang-change .layui-nav-child dd.layui-this a,
+.header .lang-change .layui-nav-child dd.layui-this {
+  background: none;
+  color: #00c1de;
+}
+.header .lang-change .layui-nav-child {
+  border: none;
+  padding: 0px;
+  left: auto;
+  top: 60px;
+  background: #202529;
+}
+.header .lang-change .layui-nav-child a {
+  color: #FFF;
+}
+.header .lang-change .layui-nav-child a:hover {
+  background: none;
+}
+.header .lang-change .center-link {
+  width: 200px;
+  right: 0px;
+  left: auto;
+  background: #202529;
+  border-radius: 0px;
+}
+.header .lang-change .layui-nav-bar {
+  display: none;
+}
+.header .user-center {
+  right: 0px;
+  padding: 0px;
+}
+.header .user-center .avator:hover {
+  background: #00c1dc;
+}
+.header .user-center .layui-this:after,
+.header .user-center .layui-nav-bar,
+.header .user-center .layui-nav-tree .layui-nav-itemed:after {
+  background: none;
+}
+.header .user-center .topbar-user-info-dropdown {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  width: 200px;
+  height: 300px;
+  background: #202529;
+  color: #fff;
+  z-index: 99999;
+}
+.header .user-center .topbar-user-info-dropdown .top {
+  background: #262c30;
+  padding: 0px 16px;
+}
+.header .user-center .topbar-user-info-dropdown .top .top-line {
+  line-height: 1;
+}
+.header .user-center .topbar-user-info-dropdown .top .top-line .user-uid {
+  margin-top: 10px;
+  display: inline-block;
+  width: 160px;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #fff;
+  padding-left: 0px;
+}
+.header .user-center .topbar-user-info-dropdown .top .top-line .user-uid:hover {
+  color: #00c1dc;
+}
+.header .user-center .topbar-user-info-dropdown .top .top-line .user-uid a {
+  padding: 0px;
+}
+.header .user-center .topbar-user-info-dropdown .top .short {
+  display: inline-block;
+  line-height: 1;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #00c1dc;
+}
+.header .user-center .topbar-user-info-dropdown .middle a {
+  height: 20px;
+  line-height: 20px;
+  padding: 0 16px;
+  margin: 12px 0;
+  font-size: 12px;
+  position: relative;
+  display: block;
+  color: #fff;
+}
+.header .user-center .topbar-user-info-dropdown .middle a:hover {
+  color: #00c1dc;
+}
+.header .user-center .topbar-user-info-dropdown .middle a img {
+  width: 18px;
+  vertical-align: top;
+  margin-right: 8px;
+}
+.header .user-center .topbar-user-info-dropdown .middle .break-line {
+  height: 1px;
+  margin: 0 16px;
+  background: #474D50;
+}
+.header .user-center .topbar-user-info-dropdown .bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+.header .user-center .topbar-user-info-dropdown .bottom div {
+  width: 160px;
+  border: 1px solid #00C1DE;
+  height: 30px;
+  line-height: 30px;
+  color: #00C1DE;
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+.header .user-center .layui-nav-more {
+  display: none;
+}
+.header .user-center .layui-nav-bar {
+  display: none;
+}
+.header .user-center .layui-nav-child dd.layui-this a,
+.header .user-center .layui-nav-child dd.layui-this {
+  background: none;
+}
+.header .user-center .layui-nav-child {
+  border: none;
+  padding: 0px;
+  left: auto;
+}
+.header .user-center .layui-nav-child a:hover {
+  background: none;
+}
+.header .user-center .center-link {
+  width: 200px;
+  right: 0px;
+  left: auto;
+  background: #202529;
+  border-radius: 0px;
+}
+.header .user-center .layui-nav-bar {
+  display: none;
+}
+.side-own {
+  left: auto;
+  right: 0px;
+  top: 60px;
+  width: 600px;
+  padding-right: 0px;
+  position: absolute;
+  bottom: auto;
+}
+.side-own .layui-table-view {
+  margin: 0 auto;
+}
+.side-own .layui-side-scroll {
+  width: 600px;
+  height: auto;
+  bottom: auto;
+}
+.side-own .layui-side-scroll .tab-left-box,
+.side-own .layui-side-scroll .tab-right-box,
+.side-own .layui-side-scroll .tab-bottom-box {
+  width: 297px;
+  background: #272b2e;
+  margin-top: 3px;
+}
+.side-own .layui-side-scroll .layui-table-body {
+  padding-top: 6px;
+}
+.side-own .layui-side-scroll .layui-table-header {
+  padding-top: 12px;
+}
+.side-own .layui-side-scroll .tab-left-box {
+  float: left;
+  margin-left: 3px;
+}
+.side-own .layui-side-scroll .tab-left-box .layui-tab-content {
+  padding: 0px;
+  padding-bottom: 10px;
+}
+.side-own .layui-side-scroll .tab-left-box .layui-tab-content .layui-table .layui-table-cell {
+  cursor: pointer;
+}
+.side-own .layui-side-scroll .tab-left-box .layui-tab-content .layui-table tr:hover {
+  background: #373d41;
+}
+.side-own .layui-side-scroll .tab-left-box .layui-tab-content .top,
+.side-own .layui-side-scroll .tab-left-box .layui-tab-content .bottom {
+  width: auto;
+  overflow: hidden;
+}
+.side-own .layui-side-scroll .tab-left-box .layui-tab-content .bottom .layui-table-header {
+  display: none;
+}
+.side-own .layui-side-scroll .tab-left-box .layui-tab-content .bottom .layui-table-body {
+  padding-top: 0px;
+}
+.side-own .layui-side-scroll .tab-left-box .layui-tab-content .middle {
+  height: 36px;
+  line-height: 36px;
+  position: relative;
+  font-size: 20px;
+  color: #FFF;
+  width: 268px;
+  margin: 0 auto;
+}
+.side-own .layui-side-scroll .tab-left-box .layui-tab-content .middle .data {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 15px;
+}
+.side-own .layui-side-scroll .tab-left-box .layui-tab-content .middle .status {
+  position: absolute;
+  right: 0px;
+  margin-top: -3px;
+}
+.side-own .layui-side-scroll .tab-right-box {
+  float: right;
+}
+.side-own .layui-side-scroll .tab-right-box .layui-tab-content {
+  padding: 0px;
+  padding-bottom: 10px;
+}
+.side-own .layui-side-scroll .tab-bottom-box {
+  float: left;
+  margin-top: 3px;
+  margin-left: 3px;
+  width: 100%;
+  height: 365px;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .layui-form {
+  margin-top: 30px;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .input-style {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #666666;
+  background: none;
+  line-height: 33px;
+  font-size: 14px;
+  color: #FFF;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .input-style-dashed {
+  border-bottom: 2px dashed #666666;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .input-box {
+  position: relative;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .right-tip {
+  position: absolute;
+  top: 0px;
+  line-height: 34px;
+  right: 0px;
+  color: #666666;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content input::-webkit-input-placeholder {
+  color: #666666;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #666666;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #666666;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #666666;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content input:focus {
+  border-color: #06B24A;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .input-text {
+  color: #CCCCCC;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .total-box {
+  position: relative;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .input-total {
+  color: #ccc;
+  width: 230px;
+  display: inline-block;
+  /* text-align: right; */
+  position: absolute;
+  right: 0px;
+  text-align: right;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .proportion {
+  list-style: none;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .proportion li {
+  float: left;
+  width: 67px;
+  line-height: 24px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-right: 4px;
+  text-align: center;
+  color: #CCCCCC;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .proportion li:last-child {
+  margin-right: 0px;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .proportion li:hover {
+  background: #06B24A;
+  color: #FFF;
+  opacity: 1;
+  cursor: pointer;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .proportion li.current {
+  background: #06B24A;
+  color: #FFF;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .login-left {
+  width: 100%;
+  height: 34px;
+  line-height: 34px;
+  border-radius: 0px;
+  background: #06b24a;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .login-right {
+  line-height: 34px;
+  border-radius: 0px;
+  width: 100%;
+  height: 34px;
+  background: #f15533;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .suspended {
+  background: #333;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .left-box {
+  width: 280px;
+  float: left;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .right-box {
+  width: 280px;
+  float: right;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .message {
+  position: absolute;
+  margin-top: -35px;
+  width: 230px;
+  line-height: 25px;
+  display: none;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .message span {
+  color: #FFF;
+  font-size: 12px;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .message .error {
+  color: #f15533;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .message .success {
+  color: #06b24a;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .loaddingBox {
+  position: absolute;
+  background: none;
+  width: 280px;
+  height: 284px;
+  text-align: center;
+  line-height: 180px;
+  /* font-size: 0px; */
+  z-index: 9;
+  opacity: 0.8;
+}
+.side-own .layui-side-scroll .tab-bottom-box .layui-tab-content .loaddingBox .layui-icon {
+  font-size: 2em;
+}
+.side-own .layui-side-scroll .layui-tab {
+  margin: 0px;
+}
+.side-own .layui-side-scroll .layui-tab .layui-tab-title {
+  background: #373d41;
+  border-bottom: 0px;
+  height: 33px;
+  color: #FFF;
+}
+.side-own .layui-side-scroll .layui-tab .layui-tab-title .layui-this {
+  color: #FFF;
+  background: #272b2e;
+}
+.side-own .layui-side-scroll .layui-tab .layui-tab-title .layui-this:after {
+  border-bottom: 0px;
+  border-top: 1px solid #00c1dc;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+}
+.side-own .layui-side-scroll .layui-tab .layui-tab-title li {
+  border: none;
+  line-height: 34px;
+  min-width: 48px;
+}
+.side-own .layui-side-scroll .layui-tab-content .layui-table-view {
+  padding: 0px;
+}
+.side-own .layui-side-scroll .layui-tab-content .layui-table-cell {
+  height: auto;
+  padding: 0px;
+  line-height: 18px;
+}
+.side-own .layui-side-scroll .layui-tab-content .layui-table {
+  width: 100%;
+  background: none;
+  color: #666;
+  margin: 0px;
+}
+.side-own .layui-side-scroll .layui-tab-content tr {
+  background: none;
+}
+.side-own .layui-side-scroll .layui-tab-content td,
+.side-own .layui-side-scroll .layui-tab-content th {
+  padding: 0px;
+  border: none;
+  background: none;
+}
+.side-own .layui-side-scroll .layui-tab-content td:not(:first-child),
+.side-own .layui-side-scroll .layui-tab-content th:not(:first-child) {
+  text-align: right;
+}
+.side-own .layui-side-scroll .layui-tab-content th {
+  color: #7291a1;
+}
+.side-own .layui-side-scroll .layui-tab-content th .layui-table-cell {
+  padding: 0px;
+}
+.side-own .layui-side-scroll .layui-tab-content td {
+  font-size: 12px;
+  color: #FFF;
+}
+.side-own .layui-side-scroll::-webkit-scrollbar {
+  display: none;
+}
+.content {
+  left: 0px;
+  right: 600px;
+  bottom: auto;
+  margin-top: 3px;
+}
+.content .chart-page .chart-container {
+  border: 1px solid;
+  border-color: red;
+}
+.content #tv_chart_container {
+  margin-top: 3px;
+}
+.content .trading-bottom-box {
+  background: #272b2e;
+  height: 280px;
+  margin-top: 3px;
+  display: none;
+}
+.content .trading-bottom-box .layui-table {
+  width: 100%;
+  background: none;
+  color: #666;
+  margin: 0px;
+}
+.content .trading-bottom-box .layui-table-cell {
+  padding: 0px;
+}
+.content .trading-bottom-box tr {
+  background: none;
+}
+.content .trading-bottom-box td,
+.content .trading-bottom-box th {
+  padding: 0px;
+  border: none;
+  background: none;
+}
+.content .trading-bottom-box td:not(:first-child),
+.content .trading-bottom-box th:not(:first-child) {
+  text-align: right;
+}
+.content .trading-bottom-box th {
+  color: #7291a1;
+}
+.content .trading-bottom-box th .layui-table-cell {
+  padding: 0px;
+}
+.content .trading-bottom-box td {
+  font-size: 12px;
+  color: #FFF;
+}
+.content .trading-bottom-box .layui-table tbody tr:hover,
+.content .trading-bottom-box .layui-table thead tr,
+.content .trading-bottom-box .layui-table-click,
+.content .trading-bottom-box .layui-table-header,
+.content .trading-bottom-box .layui-table-hover,
+.content .trading-bottom-box .layui-table-mend,
+.content .trading-bottom-box .layui-table-patch,
+.content .trading-bottom-box .layui-table-tool,
+.content .trading-bottom-box .layui-table[lay-even] tr:nth-child(even) {
+  background: none;
+}
+.content .trading-bottom-box .layui-table tbody tr:hover a,
+.content .trading-bottom-box .layui-table thead tr a,
+.content .trading-bottom-box .layui-table-click a,
+.content .trading-bottom-box .layui-table-header a,
+.content .trading-bottom-box .layui-table-hover a,
+.content .trading-bottom-box .layui-table-mend a,
+.content .trading-bottom-box .layui-table-patch a,
+.content .trading-bottom-box .layui-table-tool a,
+.content .trading-bottom-box .layui-table[lay-even] tr:nth-child(even) a {
+  background: #f15533;
+  color: #FFF;
+}
+.content .trading-bottom-box .layui-tab {
+  margin: 0px;
+}
+.content .trading-bottom-box .layui-tab .layui-tab-title {
+  background: #373d41;
+  border-bottom: 0px;
+  height: 33px;
+  color: #FFF;
+}
+.content .trading-bottom-box .layui-tab .layui-tab-title .layui-this {
+  color: #FFF;
+  background: #272b2e;
+}
+.content .trading-bottom-box .layui-tab .layui-tab-title .layui-this:after {
+  border-bottom: 0px;
+  border-top: 1px solid #00c1dc;
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+}
+.content .trading-bottom-box .layui-tab .layui-tab-title li {
+  border: none;
+  line-height: 34px;
+  min-width: 48px;
+}
+.content .trading-bottom-box .layui-tab-content {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+.content .trading-bottom-box .layui-tab-content .top,
+.content .trading-bottom-box .layui-tab-content .bottom {
+  width: auto;
+  height: 235px;
+  overflow: hidden;
+}
+.content .trading-bottom-box .layui-tab-content .middle {
+  height: 36px;
+  line-height: 36px;
+  position: relative;
+  font-size: 18px;
+  color: #FFF;
+}
+.content .trading-bottom-box .layui-tab-content .middle .data {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 30px;
+}
+.content .trading-bottom-box .layui-tab-content .middle .status {
+  position: absolute;
+  right: 0px;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.white {
+  color: #FFF;
+}
+.red {
+  color: #ff5353;
+}
+.green {
+  color: #06b07c;
+}
+.layui-table {
+  background: none;
+}
+.layui-table td,
+.layui-table th,
+.layui-table-fixed-r,
+.layui-table-header,
+.layui-table-page,
+.layui-table-tips-main,
+.layui-table-tool,
+.layui-table-view,
+.layui-table[lay-skin=line],
+.layui-table[lay-skin=row] {
+  background: none;
+  border-style: none;
+}
+.layui-table tbody tr:hover,
+.layui-table thead tr,
+.layui-table-click,
+.layui-table-header,
+.layui-table-hover,
+.layui-table-mend,
+.layui-table-patch,
+.layui-table-tool,
+.layui-table[lay-even] tr:nth-child(even) {
+  background: none;
+}
+.layui-table tbody tr:hover a,
+.layui-table thead tr a,
+.layui-table-click a,
+.layui-table-header a,
+.layui-table-hover a,
+.layui-table-mend a,
+.layui-table-patch a,
+.layui-table-tool a,
+.layui-table[lay-even] tr:nth-child(even) a {
+  background: none;
+  color: #00C1DC;
+}
+.layui-table thead th {
+  color: #FFF;
+}
+.undo-btn {
+  color: #FFF;
+  padding: 3px 10px;
+  border: none;
+  background: #f15533;
+  cursor: pointer;
+}
+.layui-none {
+  color: #666;
+  font-size: 12px;
+}
+/*# sourceMappingURL=style.css.map */

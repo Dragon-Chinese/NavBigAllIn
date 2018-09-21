@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>交易</title>
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="./bithank_favicon.ico">
+    <link rel="stylesheet" href="./layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="./css/style.css" media="all">
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+<div class="bithank-loadding">
+    <div class="loading-txt">
+        <p class="loading-icon"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></p>
+        Bithank loading
+    </div>
+</div>
+<div class="layui-row">
+    <div class="layui-header header">
+        <div class="header-left">
+            <div class="layui-logo logo">
+                <a href="../">
+                    <img src="./images/logo.gif" width="106px"/>
+                </a>
+            </div>
+            <div class="price-box">
+                <div class="block block-one">
+                    <p class="txt-pair langChang" lang-txt="market">市场</p>
+                    <p class="select">
+                    <div id="blockNavView"></div>
+                    <!--<div class="loadding"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></div>-->
+                    <script id="blockNav" type="text/html">
+                        <ul class="layui-nav" lay-filter="pair">
+                            <li class="layui-nav-item one" lay-unselect="">
+                                <a class="txt one" href="javascript:;">{{d.thisName}}</a>
+                                <div class="layui-nav-child pair-box">
+                                    <!--
+                                    <div class="pair-search">
+                                        <img src="./images/search@2x.png" />
+                                        <input type="text" name="" value="">
+                                    </div>-->
+                                    <div class="layui-tab layui-tab-brief" lay-filter="pair-list">
+                                        <ul class="layui-tab-title">
+                                            <!--<li class="layui-this">自选</li>-->
+                                            {{# layui.each(d.pairList, function(index, item){ }}
+                                            {{# if(item.name != ''){ }}
+                                            {{# if(index == 0){ }}
+                                            <li class="layui-this">{{item.name}}</li>
+                                            {{# }else{ }}
+                                            <li>{{item.name}}</li>
+                                            {{# } }}
+                                            {{# } }}
+                                            {{# }); }}
+                                        </ul>
+                                        <div class="layui-tab-content">
+                                            {{# layui.each(d.pairList, function(index, item){ }}
+                                            {{# if(item.name != ''){ }}
+                                            {{# if(index == 0){ }}
+                                            <div class="layui-tab-item layui-show">
+                                                <table id="{{item.name}}" lay-filter="{{item.name}}"></table>
+                                            </div>
+                                            {{# }else{ }}
+                                            <div class="layui-tab-item">
+                                                <table id="{{item.name}}" lay-filter="{{item.name}}"></table>
+                                            </div>
+                                            {{# } }}
+                                            {{# } }}
+                                            {{# }); }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </script>
+                    </p>
+                </div>
+                <div id="blockView"></div>
+                <!--<div class="loadding" style="margin-top:15px;"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></div>-->
+                <script id="block" type="text/html">
+                    <div class="block">
+                        <p class="txt">{{d.title.price}}</p>
+                        <p class="data">
+                            <span class="one">{{d.price}}</span>
+                            <span class="two">￥{{d.priceUS}}</span>
+                        </p>
+                    </div>
+                    <div class="block">
+                        <p class="txt">{{d.title.delta}}</p>
+                        <p class="data">
+                            {{# if(d.priceFluctuation >= 0){}}
+                            <span class="one green">{{d.priceFluctuation}}%</span>
+                            {{# }else{ }}
+                            <span class="one red">{{d.priceFluctuation}}%</span>
+                            {{# } }}
+                        </p>
+                    </div>
+                    <div class="block">
+                        <p class="txt">{{d.title.high}}</p>
+                        <p class="data">{{d.highestPrice}}</p>
+                    </div>
+                    <div class="block">
+                        <p class="txt">{{d.title.low}}</p>
+                        <p class="data">{{d.lowestPrice}}</p>
+                    </div>
+                    <div class="block">
+                        <p class="txt">{{d.title.volume}}</p>
+                        <p class="data">{{d.volume}}</p>
+                    </div>
+                </script>
+            </div>
+        </div>
+        <div class="contBox">
+
+        </div>
+        <div class="header-right">
+            <div id="loginRegBoxView"></div>
+            <!--<div class="loadding userLoadding"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></div>-->
+            <script id="loginRegBox" type="text/html">
+                {{# if(d.isLogin == 1){ }}<!--登录显示-->
+                <ul class="layui-nav top-menu user-center">
+                    <li class="layui-nav-item" lay-unselect="">
+                        <a class="avator" href="javascript:;"><img src="./images/user-image.b553371a.png" /> </a>
+                        <div class="layui-nav-child topbar-user-info-dropdown" v-show="isUserBox" @mouseenter="isShowUserBox" @mouseleave="isShowUserBox">
+                            <div class="top">
+                                <div class="top-line">
+                                    {{# if(d.data.mobile!=''){ }}
+                                    <a href="../#/Account" class="user-uid">{{d.data.mobile}}</a>
+                                    {{# }else{ }}
+                                    <a to="/" class="user-uid"></a>
+                                    {{# } }}
+                                </div>
+                                {{# if(d.data.name!=''){ }}
+                                <span class="short">{{d.realName}}</span>
+                                {{# }else{ }}
+                                <a to="../#/IdAuthentication" class="short">{{d.realNameNo}}</a>
+                                {{# } }}
+                            </div>
+                            <div class="middle">
+                                <div>
+                                    <a href="../#/Account"><img src="./images/zhanghao.ebd4c68c.png"/> {{d.account_information}}</a>
+                                    <a href="../#/IdAuthentication"><img src="./images/renzheng.c4f6f4e6.png"/> {{d.identity_auth}}</a>
+                                    <a href="../#/Recommend"><img src="./images/tuijian.png" alt="推荐中心"> {{d.rec_center}}</a>
+                                    <div class="break-line"></div>
+                                    <a href="../#/AssetManagement"><img src="./images/zican.b74bcfec.png"/> {{d.assets_manage}}</a>
+                                    <a href="../#/EntrustMangement"><img src="./images/weituo.1a2f3aa4.png"/> {{d.entrusted_manage}}</a>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <div class="logout" lay-submit lay-filter="logout">{{d.logout}}</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!--<ul class="layui-nav top-menu lang-change" lay-filter="lang" style="right:85px;">-->
+                    <!--<li class="layui-nav-item" lay-unselect="">-->
+                        <!--<a href="javascript:;">{{langLists[d.lang].lang}}</a>-->
+                        <!--<dl class="layui-nav-child">-->
+                            <!--{{# if(d.lang == 0){ }}-->
+                            <!--<dd class="layui-this"><a href="javascript:;" data-value="{{langLists[0].val}}">{{langLists[0].lang}}</a></dd>-->
+                            <!--{{# }else{ }}-->
+                            <!--<dd><a href="javascript:;" data-value="{{langLists[0].val}}">{{langLists[0].lang}}</a></dd>-->
+                            <!--{{# } }}-->
+                            <!--{{# if(d.lang == 1){ }}-->
+                            <!--<dd class="layui-this"><a href="javascript:;" data-value="{{langLists[1].val}}">{{langLists[1].lang}}</a></dd>-->
+                            <!--{{# }else{ }}-->
+                            <!--<dd><a href="javascript:;" data-value="{{langLists[1].val}}">{{langLists[1].lang}}</a></dd>-->
+                            <!--{{# } }}-->
+                            <!--<dd{{# if(d.lang == 2){ }} class="layui-this" {{# } }}><a href="javascript:;" data-value="{{langLists[2].val}}">{{langLists[2].lang}}</a></dd>-->
+                        <!--</dl>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                {{# }else{ }}<!--未登录显示-->
+                <div class="layui-btn-group user-auth">
+                    <a href="../#/Login" class="layui-btn login">{{d.login}}</a>
+                    <a href="../#/Register" class="layui-btn reg">{{d.register}}</a>
+                </div>
+                <!--<ul class="layui-nav top-menu lang-change" lay-filter="lang">-->
+                    <!--<li class="layui-nav-item" lay-unselect="">-->
+                        <!--<a href="javascript:;">{{langLists[d.lang].lang}}</a>-->
+                        <!--<dl class="layui-nav-child">-->
+                            <!--<dd {{# if(d.lang == 0){ }} class="layui-this" {{# } }}><a href="javascript:;" data-value="{{langLists[0].val}}">{{langLists[0].lang}}</a></dd>-->
+                            <!--<dd {{# if(d.lang == 1){ }} class="layui-this" {{# } }}><a href="javascript:;" data-value="{{langLists[1].val}}">{{langLists[1].lang}}</a></dd>-->
+                            <!--<dd{{# if(d.lang == 2){ }} class="layui-this" {{# } }}><a href="javascript:;" data-value="{{langLists[2].val}}">{{langLists[2].lang}}</a></dd>-->
+                        <!--</dl>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                {{# } }}
+            </script>
+        </div>
+    </div>
+    <div class="contBox">
+        <div class="layui-side side-own">
+            <div class="layui-side-scroll">
+                <div class="tab-left-box">
+                    <div class="layui-tab">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this">
+                                <img class="langChang" lang-text="img-sell-buy" src="images/1@2x.png" title="卖出/买入"/>
+                            </li>
+                            <li>
+                                <img class="langChang" lang-text="img-sell" src="images/2@2x.png" title="卖出"/>
+                            </li>
+                            <li>
+                                <img class="langChang" lang-text="img-buy" src="images/3@2x.png" title="买入"/>
+                            </li>
+                        </ul>
+                        <div class="layui-tab-content dish-box auto-height" style="overflow: hidden">
+                            <div class="layui-tab-item layui-show">
+                                <div class="top"><!--卖出-->
+                                    <table id="marketDepthAllTop" lay-filter="marketDepthAllTop">
+                                        <!--<div class="loadding"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></div>-->
+                                    </table>
+                                </div>
+                                <div class="middle">
+                                    <div id="currentPriceView"></div>
+                                    <script id="currentPrice" type="text/html">
+                                        <span class="price">{{d.price}}</span>
+                                        {{# if(d.priceFluctuation >= 0){}}
+                                        <span class="data green">{{d.priceFluctuation}}%</span>
+                                        {{# }else{ }}
+                                        <span class="data red">{{d.priceFluctuation}}%</span>
+                                        {{# } }}
+                                        <span class="status"><img src="./images/status.png" /></span>
+                                    </script>
+                                </div>
+                                <div class="bottom"><!--买入-->
+                                    <table id="marketDepthAllBottom" lay-filter="marketDepthAllBottom">
+                                        <!--<div class="loadding"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></div>-->
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item">
+                                <!--卖出-->
+                                <table id="sellersData" lay-filter="sellersData">
+                                    <!--<div class="loadding"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></div>-->
+                                </table>
+                                <div class="middle">
+                                    <div id="currentPriceViewSell"></div>
+                                    <script id="currentPriceSell" type="text/html">
+                                        <span class="price">{{d.price}}</span>
+                                        {{# if(d.priceFluctuation >= 0){}}
+                                        <span class="data green">{{d.priceFluctuation}}%</span>
+                                        {{# }else{ }}
+                                        <span class="data red">{{d.priceFluctuation}}%</span>
+                                        {{# } }}
+                                        <span class="status"><img src="./images/status.png" /></span>
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="layui-tab-item">
+                                <div class="middle">
+                                    <div id="currentPriceViewBuy"></div>
+                                    <script id="currentPriceBuy" type="text/html">
+                                        <span class="price">{{d.price}}</span>
+                                        {{# if(d.priceFluctuation >= 0){}}
+                                        <span class="data green">{{d.priceFluctuation}}%</span>
+                                        {{# }else{ }}
+                                        <span class="data red">{{d.priceFluctuation}}%</span>
+                                        {{# } }}
+                                        <span class="status"><img src="./images/status.png" /></span>
+                                    </script>
+                                </div>
+                                <!--买入-->
+                                <table id="buyersData" lay-filter="buyersData">
+                                    <!--<div class="loadding"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></div>-->
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-right-box">
+                    <div class="layui-tab">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this langChang" lang-txt="transaction_history" >交易历史</li>
+                        </ul>
+                        <div class="layui-tab-content auto-height">
+                            <div class="layui-tab-item layui-show">
+                                <table id="tradingHistory" lay-filter="tradingHistory">
+                                    <!--<div class="loadding"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></div>-->
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-bottom-box">
+                    <div class="layui-tab" lay-filter="buyAndSell">
+                        <ul class="layui-tab-title">
+                            <li class="layui-this langChang" lang-txt="limit_price">
+                                限价
+                            </li>
+                            <li class="langChang" lang-txt="market_price">
+                                市价
+                            </li>
+                        </ul>
+                        <div class="layui-tab-content">
+                            <div class="layui-tab-item layui-show">
+                                <div class="loadding"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></div>
+                                <div id="bottomBlockPriceView"></div>
+                                <script id="bottomBlockPrice" type="text/html">
+                                    <div class="left-box">
+                                        <form id="limitPriceBuy" class="layui-form" action="">
+                                            <div class="msgCont message"></div>
+                                            {{# if(d.balance.buyBalance){ }}
+                                            <div class="layui-form-item">
+                                                <span class="input-text">{{d.name}}{{d.property}}：{{d.balance.buyBalance}}</span>
+                                            </div>
+                                            {{# } }}
+                                            <div class="layui-form-item">
+                                                <input type="hidden" name="code" value="{{d.code}}">
+                                                <span class="input-text">{{d.price}}</span>
+                                                <div class="input-box">
+                                                    <input id="limitLeftPrice" autocomplete="off" class="input-style auto-price" placeholder="{{d.price}}" data-area="limitLeft" data-type="price" name="price" value="">
+                                                    <span class="right-tip">{{d.name}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <span class="input-text">{{d.size}}</span>
+                                                <div class="input-box">
+                                                    <input class="input-style auto-num" autocomplete="off" placeholder="{{d.size}}" data-type="num" name="num" value="">
+                                                    <span class="right-tip">{{d.name1}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <ul class="proportion">
+                                                    <li class="percentage" data-type="limitLeft" data-num="0.25">25%</li>
+                                                    <li class="percentage" data-type="limitLeft" data-num="0.50">50%</li>
+                                                    <li class="percentage" data-type="limitLeft" data-num="0.75">75%</li>
+                                                    <li class="percentage" data-type="limitLeft" data-num="1">100%</li>
+                                                </ul>
+                                            </div>
+                                            <div class="layui-form-item total-box">
+                                                <span class="input-text">{{d.total}}{{d.name}}</span>
+                                                <span class="input-total"></span>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                {{# if(d.isLogin !=1){ }}
+                                                <a href="../#/Login" class="layui-btn login-left">{{d.login}}</a>
+                                                {{# }else if(!d.isSuspended){ }}
+                                                <button lay-submit lay-filter="limitPriceBuy" class="layui-btn login-left">{{d.buy}} {{d.name1}}</button>
+                                                {{# }else{ }}
+                                                <span class="layui-btn login-left suspended">{{d.suspended}}</span>
+                                                {{# } }}
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="right-box">
+                                        <form id="limitPriceSell" class="layui-form" action="">
+                                            <div class="msgCont message"></div>
+                                            <div class="layui-form-item">
+                                                <input type="hidden" name="code" value="{{d.code}}">
+                                                {{# if(d.balance.sellBalance){ }}
+                                                <div class="layui-form-item">
+                                                    <span class="input-text">{{d.name1}}{{d.property}}：{{d.balance.sellBalance}}</span>
+                                                </div>
+                                                {{# } }}
+                                                <span class="input-text">{{d.price}}</span>
+                                                <div class="input-box">
+                                                    <input id="limitRightPrice" autocomplete="off" class="input-style auto-price" data-area="limitRight" data-type="price" placeholder="{{d.price}}" name="price" value="">
+                                                    <span class="right-tip">{{d.name}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <span class="input-text">{{d.size}}</span>
+                                                <div class="input-box">
+                                                    <input class="input-style auto-num" autocomplete="off" placeholder="{{d.size}}" data-type="num" name="num" value="">
+                                                    <span class="right-tip">{{d.name1}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <ul class="proportion">
+                                                    <li class="percentage" data-type="limitRight" data-num="0.25">25%</li>
+                                                    <li class="percentage" data-type="limitRight" data-num="0.50">50%</li>
+                                                    <li class="percentage" data-type="limitRight" data-num="0.75">75%</li>
+                                                    <li class="percentage" data-type="limitRight" data-num="1">100%</li>
+                                                </ul>
+                                            </div>
+                                            <div class="layui-form-item total-box">
+                                                <span class="input-text">{{d.total}}{{d.name}}</span>
+                                                <span class="input-total"></span>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                {{# if(d.isLogin !=1){ }}
+                                                <a href="../#/Login" class="layui-btn login-right">{{d.login}}</a>
+                                                {{# }else if(!d.isSuspended){ }}
+                                                <button lay-submit lay-filter="limitPriceSell" class="layui-btn login-right">{{d.sell}} {{d.name1}}</button>
+                                                {{# }else{ }}
+                                                <span class="layui-btn login-left suspended">{{d.suspended}}</span>
+                                                {{# } }}
+                                            </div>
+                                        </form>
+                                    </div>
+                                </script>
+                            </div>
+                            <div class="layui-tab-item">
+                                <div id="bottomMarketPriceView"></div>
+                                <script id="bottomMarketPrice" type="text/html">
+                                    <div class="left-box">
+                                        <form id="marketPriceBuy" class="layui-form" action="">
+                                            <div class="msgCont message"></div>
+                                            {{# if(d.balance.buyBalance){ }}
+                                            <div class="layui-form-item">
+                                                <span class="input-text">{{d.name}}{{d.property}}：{{d.balance.buyBalance}}</span>
+                                            </div>
+                                            {{# } }}
+                                            <div class="layui-form-item">
+                                                <input type="hidden" name="code" value="{{d.code}}">
+                                                <div class="input-box">
+                                                    <input id="marketLeftPrice" autocomplete="off" class="input-style input-style-dashed" placeholder="{{d.market_price}}"
+                                                           name="" value="" disabled>
+                                                    <span class="right-tip">{{d.name}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <span class="input-text">{{d.count}}</span>
+                                                <div class="input-box">
+                                                    <input class="input-style auto-num" autocomplete="off" data-type="num" placeholder="{{d.count}}" name="num" value="">
+                                                    <span class="right-tip">{{d.name}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <ul class="proportion">
+                                                    <li class="percentage" data-type="marketLeft" data-num="0.25">25%</li>
+                                                    <li class="percentage" data-type="marketLeft" data-num="0.50">50%</li>
+                                                    <li class="percentage" data-type="marketLeft" data-num="0.75">75%</li>
+                                                    <li class="percentage" data-type="marketLeft" data-num="1">100%</li>
+                                                </ul>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <!--<span class="input-text">累计{{d.name}}</span>-->
+                                                <!--<span class="input-total"></span>-->
+                                            </div>
+                                            <div class="layui-form-item">
+                                                {{# if(d.isLogin !=1){ }}
+                                                <a href="../#/Login" class="layui-btn login-left">{{d.login}}</a>
+                                                {{# }else if(!d.isSuspended){ }}
+                                                <button lay-submit lay-filter="marketPriceBuy" class="layui-btn login-left">{{d.buy}} {{d.name1}}</button>
+                                                {{# }else{ }}
+                                                <span class="layui-btn login-left suspended">{{d.suspended}}</span>
+                                                {{# } }}
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="right-box">
+                                        <form id="marketPriceSell" class="layui-form" action="">
+                                            <div class="msgCont message"></div>
+                                            {{# if(d.balance.sellBalance){ }}
+                                            <div class="layui-form-item">
+                                                <span class="input-text">{{d.name1}}{{d.property}}：{{d.balance.sellBalance}}</span>
+                                            </div>
+                                            {{# } }}
+                                            <div class="layui-form-item">
+                                                <input type="hidden" name="code" value="{{d.code}}">
+                                                <div class="input-box">
+                                                    <input id="marketRightPrice" autocomplete="off" class="input-style input-style-dashed" placeholder="{{d.market_price}}"
+                                                           name="" value="" disabled>
+                                                    <span class="right-tip">{{d.name1}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <span class="input-text">{{d.size}}</span>
+                                                <div class="input-box">
+                                                    <input class="input-style auto-num" autocomplete="off" data-type="num" placeholder="{{d.size}}" name="num" value="">
+                                                    <span class="right-tip">{{d.name1}}</span>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <ul class="proportion">
+                                                    <li class="percentage" data-type="marketRight" data-num="0.25">25%</li>
+                                                    <li class="percentage" data-type="marketRight" data-num="0.50">50%</li>
+                                                    <li class="percentage" data-type="marketRight" data-num="0.75">75%</li>
+                                                    <li class="percentage" data-type="marketRight" data-num="1">100%</li>
+                                                </ul>
+                                            </div>
+                                            <div class="layui-form-item">
+                                                <!--<span class="input-text">累计{{d.name}}</span>-->
+                                                <!--<span class="input-total"></span>-->
+                                            </div>
+                                            <div class="layui-form-item">
+                                                {{# if(d.isLogin !=1){ }}
+                                                <a href="../#/Login" class="layui-btn login-right">{{d.login}}</a>
+                                                {{# }else if(!d.isSuspended){ }}
+                                                <button lay-submit lay-filter="marketPriceSell" class="layui-btn login-right">{{d.sell}} {{d.name1}}</button>
+                                                {{# }else{ }}
+                                                <span class="layui-btn login-left suspended">{{d.suspended}}</span>
+                                                {{# } }}
+                                            </div>
+                                        </form>
+                                    </div>
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-body content">
+            <div id="tv_chart_container" style="margin-top:60px;">
+
+            </div>
+            <div class="trading-bottom-box">
+                <div class="layui-tab">
+                    <ul class="layui-tab-title">
+                        <li class="layui-this langChang" lang-txt="current-entrust">
+                            当前委托
+                        </li>
+                        <li class="langChang" lang-txt="history-entrust">
+                            成交历史
+                        </li>
+                    </ul>
+                    <div class="layui-tab-content">
+                        <div class="layui-tab-item layui-show">
+                            <!--卖出-->
+                            <table id="findEntrust" lay-filter="findEntrust">
+                                <!--<div class="loadding"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></div>-->
+                            </table>
+                        </div>
+                        <div class="layui-tab-item">
+                            <table id="findHistoryEntrust" lay-filter="findHistoryEntrust">
+                                <!--<div class="loadding"><i class="layui-icon layui-icon-loading layui-anim layui-anim-rotate layui-anim-loop"></i></div>-->
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="./layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./charting_library/charting_library.min.js"></script>
+    <script type="text/javascript" src="./datafeeds/udf/dist/polyfills.js"></script>
+    <script type="text/javascript" src="./datafeeds/udf/dist/bundle.js"></script>
+    <script type="text/javascript" src="./js/trading.js"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+</body>
+</html>
